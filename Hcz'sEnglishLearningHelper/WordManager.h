@@ -187,7 +187,7 @@ void hcz_3(std::vector<_words_>& words)
 		else
 		{
 			std::cout << "错误\n";
-			std::cout << "正确写法为" << word.word << '\n';
+			std::cout << "正确写法" << word.word << '\n';
 			word.error_number_of_dictation++;
 		}
 	}
@@ -218,7 +218,7 @@ void hcz_4(std::vector<_words_>& words)
 		else
 		{
 			std::cout << "错误\n";
-			std::cout << "正确写法为" << word.word << '\n';
+			std::cout << "正确写法为 " << word.word << '\n';
 			word.error_number_of_dictation++;
 		}
 	}
