@@ -137,6 +137,7 @@
     <ClInclude Include="conversion_utf8_gbk.h" />
     <ClInclude Include="conversion_wstring_string.h" />
     <ClInclude Include="httplib.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="MD5.h" />
     <ClInclude Include="md5_encode.h" />
     <ClInclude Include="translate.h" />
