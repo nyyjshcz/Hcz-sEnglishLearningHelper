@@ -1,9 +1,9 @@
 #pragma once
 #include"conversion_utf8_gbk.h"
+#include"json.hpp"
 #include<algorithm>
 #include<fstream>
 #include<iostream>
-#include"json.hpp"
 #include<random>
 #include<string>
 #include<vector>
@@ -227,7 +227,7 @@ void hcz_4(std::vector<_words_>& words)
 }
 void hcz_7(nlohmann::json js)
 {
-	std::cout << "请输入需要查询的单词，然后按下回车,输入esc以退出，输入n以继续查询\n";
+	std::cout << "请输入需要查询的单词，然后按下回车,输入esc以退出\n";
 	std::string s;
 	getline(std::cin, s);
 	while (1)

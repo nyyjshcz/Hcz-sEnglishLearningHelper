@@ -11,11 +11,6 @@ void main_page()
 		std::cout << "1：单词翻译 2：单词管理器\n";
 		std::string op;
 		std::cin >> op;
-		std::cout << op;
-		nlohmann::json temp;
-		temp["temp"] = op;
-		std::ofstream o("test.json");
-		o << std::setw(4) << temp << std::endl;
 		if (op == "1")
 		{
 			start_hczs_translator();
