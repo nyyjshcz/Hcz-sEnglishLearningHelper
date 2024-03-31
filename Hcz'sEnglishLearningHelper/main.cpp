@@ -3,7 +3,6 @@
 #include"WordManager.h"
 #include <locale.h>
 #include"conversion_wstring_string.h"
-#include <nlohmann/json.hpp>
 void main_page()
 {
 	while (1)
@@ -16,7 +15,7 @@ void main_page()
 		{
 			start_hczs_translator();
 		}
-		else if(op=="q"||op=="esc")
+		else if (op == "q" || op == "esc")
 		{
 			exit(0);
 		}
@@ -30,7 +29,7 @@ std::string readchinese()
 {
 	std::wstring s;
 	std::wcin >> s;
-	std::string ret=to_byte_string(s);
+	std::string ret = to_byte_string(s);
 	return ret;
 }
 int main()
