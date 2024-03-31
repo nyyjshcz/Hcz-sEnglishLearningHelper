@@ -1,20 +1,20 @@
 #pragma once
-#include <iostream>
-#include <nlohmann/json.hpp>
-#include <fstream>
-#include<vector>
-#include <string>
-#include <Windows.h>
-#include <random>
-#include "conversion_utf8_gbk.h"
+#include"conversion_utf8_gbk.h"
 #include<algorithm>
+#include<fstream>
+#include<iostream>
+#include<nlohmann/json.hpp>
+#include<random>
+#include<string>
+#include<vector>
+#include<Windows.h>
 class _words_ {
 public:
 	std::string word;
 	std::string sentence;
 	std::string chinese;
 	int error_number_of_dictation;
-	inline bool operator < (const _words_ &x)const {
+	inline bool operator < (const _words_& x)const {
 		return error_number_of_dictation > x.error_number_of_dictation;
 	}
 };
@@ -133,7 +133,7 @@ std::vector<_words_>js_vector(nlohmann::json& js)
 	}
 	return res;
 }
-nlohmann::json vector_js(std::vector<_words_>&words)
+nlohmann::json vector_js(std::vector<_words_>& words)
 {
 	nlohmann::json js;
 	js["is_empty"] = 0;
@@ -148,7 +148,7 @@ nlohmann::json vector_js(std::vector<_words_>&words)
 }
 void outputword(std::string s, std::string ss)
 {
-	for(int i=0;i<s.size();i++)
+	for (int i = 0; i < s.size(); i++)
 	{
 		if (s.substr(i, ss.size()) == ss)
 		{
@@ -161,7 +161,7 @@ void outputword(std::string s, std::string ss)
 	}
 	std::cout << s << '\n';
 }
-void hcz_3(std::vector<_words_>&words)
+void hcz_3(std::vector<_words_>& words)
 {
 	std::cout << "请根据中文意思写入单词或短语,输入esc以退出\n";
 	if (!words.size())
@@ -175,7 +175,7 @@ void hcz_3(std::vector<_words_>&words)
 	getline(std::cin, s);
 	while (1)
 	{
-		_words_ &word = words[rnd() % words.size()];
+		_words_& word = words[rnd() % words.size()];
 		std::cout << word.chinese << '\n';
 		outputword(word.sentence, word.word);
 		getline(std::cin, s);
@@ -204,7 +204,7 @@ void hcz_4(std::vector<_words_>& words)
 	stable_sort(words.begin(), words.end());
 	std::string s;
 	getline(std::cin, s);
-	for(int i=0;i<words.size();i++)
+	for (int i = 0; i < words.size(); i++)
 	{
 		_words_& word = words[i];
 		std::cout << word.chinese << '\n';
@@ -230,7 +230,7 @@ void hcz_7(nlohmann::json js)
 	std::cout << "请输入需要查询的单词，然后按下回车,输入esc以退出，输入n以继续查询\n";
 	std::string s;
 	getline(std::cin, s);
-	while(1)
+	while (1)
 	{
 		getline(std::cin, s);
 		if (s == "esc")return;
@@ -266,7 +266,7 @@ void hcz_start_word_manager()
 		}
 		else if (s == "3")
 		{
-			word=js_vector(js);
+			word = js_vector(js);
 			hcz_3(word);
 			js = vector_js(word);
 		}

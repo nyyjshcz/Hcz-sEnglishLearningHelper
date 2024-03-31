@@ -1,6 +1,6 @@
-#include <string>
-#include <locale>
 #include <codecvt>
+#include <locale>
+#include <string>
 
 // convert string to wstring
 inline std::wstring to_wide_string(const std::string& input)

@@ -1,8 +1,8 @@
-﻿#include<iostream>
+﻿#include"conversion_wstring_string.h"
 #include"translator.h"
 #include"WordManager.h"
-#include <locale.h>
-#include"conversion_wstring_string.h"
+#include<iostream>
+#include<locale.h>
 void main_page()
 {
 	while (1)
