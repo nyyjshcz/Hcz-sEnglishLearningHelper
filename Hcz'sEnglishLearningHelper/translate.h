@@ -1,7 +1,7 @@
 ﻿#include"httplib.h"
 #include"MD5.h"
 #include<iostream>
-#include<nlohmann/json.hpp>
+#include"json.hpp"
 #include<string.h>
 std::string translate(std::string str) {
 	std::srand(time(0));
