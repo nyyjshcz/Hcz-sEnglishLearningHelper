@@ -18,6 +18,15 @@ public:
 		return error_number_of_dictation > x.error_number_of_dictation;
 	}
 };
+void remove_endofline_spaces(string& s)
+{
+	while (s.size() && s.back() == ' ')s.pop_back();
+}
+std::string tolowercase(std::string s)
+{
+	for (int i = 0; i < s.size(); i++)s[i] = tolower(s[i]);
+	return s;
+}
 void hcz_make_new_file(std::string s, std::string& file)
 {
 	std::ifstream fin(s);
@@ -88,6 +97,7 @@ void hcz_5(nlohmann::json& js)
 			while (1)
 			{
 				getline(fin, word);
+				remove_endofline_spaces(word);
 				if (word == "the end")break;
 				getline(fin, chinese);
 				getline(fin, sentence);
@@ -150,7 +160,7 @@ void outputword(std::string s, std::string ss)
 {
 	for (int i = 0; i < s.size(); i++)
 	{
-		if (s.substr(i, ss.size()) == ss)
+		if (tolowercase(s.substr(i, ss.size())) == tolowercase(ss))
 		{
 			for (int j = i; j < i + ss.size(); j++)
 			{
@@ -204,12 +214,14 @@ void hcz_4(std::vector<_words_>& words)
 	stable_sort(words.begin(), words.end());
 	std::string s;
 	getline(std::cin, s);
+	remove_endofline_spaces(s);
 	for (int i = 0; i < words.size(); i++)
 	{
 		_words_& word = words[i];
 		std::cout << word.chinese << '\n';
 		outputword(word.sentence, word.word);
 		getline(std::cin, s);
+		remove_endofline_spaces(s);
 		if (s == "esc")return;
 		if (s == word.word)
 		{
