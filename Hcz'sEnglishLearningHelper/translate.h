@@ -5,7 +5,7 @@
 #include<string.h>
 std::string translate(std::string str) {
 	std::srand(time(0));
-	std::string from = "en", to = "zh", appid = "20220312001121907", salt = std::to_string(rand()), key = "UxO12SZ7pdfkj1qFfC1w";
+	std::string from = "en", to = "zh", appid = "20240419002029316", salt = std::to_string(rand()), key = "wV4UyQo7nPAYd1YMUled";
 	std::string temURL = "http://api.fanyi.baidu.com";
 	std::string sign = appid + str + salt + key;
 	sign = MD5(sign).toStr();
